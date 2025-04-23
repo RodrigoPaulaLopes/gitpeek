@@ -9,6 +9,7 @@ import GitHubImg from "./components/GitImage/Index"
 import Title from "./components/Title/Index"
 import Form from "./components/Form/Index"
 import InputSearch from "./components/InputSearch/Index"
+import ProfileContent from "./components/ProfileContent/Index"
 
 const initialValue: IProfile = {
   name: '',
@@ -26,6 +27,8 @@ function App() {
     try {
       const response = await api.get(`/${username}`)
       const { avatar_url, name, bio } = response.data
+      console.log(name);
+      
       setProfile({ name, avatar_url, bio })
     } catch (error) {
       console.log(error)
@@ -41,24 +44,7 @@ function App() {
         <InputSearch value={username} change={(e) => setUsername(e.target.value)}/> 
       </Form>
 
-      <div className="flex items-center bg-alert px-20 py-5 rounded-lg mt-8 gap-8">
-        <div>
-          <div className="avatar">
-            <div className="w-[220px] rounded-full border-4 border-title">
-              <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-            </div>
-          </div>
-        </div>
-        <div>
-          <h1 className="text-title text-xl font-semibold">Lucas Mendes</h1>
-          <p className="text-base font-medium text-black">Desenvolvedor front-end apaixonado por criar
-            interfaces intuitivas e acessíveis.
-            Especialista em UX/UI e e-commerces,
-            transformando design em código eficiente.
-            Sempre explorando novas tecnologias
-            para melhorar a experiência do usuário. 🚀</p>
-        </div>
-      </div>
+      <ProfileContent profile={profile} />
       <div className="bg-alert px-10 py-5 rounded-lg mt-8">
         <p className="text-error text-center">Nenhum perfil foi encontrado com esse nome de usuário.
           Tente novamente</p>
