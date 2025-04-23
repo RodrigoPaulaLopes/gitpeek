@@ -1,11 +1,12 @@
 import { FormEvent, useState } from "react"
 import { api } from "./api/Api"
 import { IProfile } from "./interfaces/profile"
-import GitImage from "./assets/github.png"
+
 import { Search } from "lucide-react"
 import Container from "./components/Container/Index"
-import Header from "./components/Content/Index"
 import Content from "./components/Content/Index"
+import GitHubImg from "./components/GitImage/Index"
+import Title from "./components/Title/Index"
 
 const initialValue: IProfile = {
   name: '',
@@ -31,8 +32,8 @@ function App() {
   return (
     <Container>
       <Content>
-        <img src={GitImage} alt="image_profile" />
-        <h1 className="text-80">Perfil <span className="font-bold">GitHub</span></h1>
+        <GitHubImg />
+        <Title text="Perfil GitHub" />
       </Content>
       <form className="w-full flex items-center justify-center max-w-2xl" onSubmit={e => findUser(e)}>
         <div className="flex w-full h-[62px]  rounded-lg bg-black rounded-lg border border-gray-300 bg-white ">
