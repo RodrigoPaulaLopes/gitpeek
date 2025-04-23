@@ -7,6 +7,7 @@ import Container from "./components/Container/Index"
 import Content from "./components/Content/Index"
 import GitHubImg from "./components/GitImage/Index"
 import Title from "./components/Title/Index"
+import Form from "./components/Form/Index"
 
 const initialValue: IProfile = {
   name: '',
@@ -35,7 +36,7 @@ function App() {
         <GitHubImg />
         <Title text="Perfil GitHub" />
       </Content>
-      <form className="w-full flex items-center justify-center max-w-2xl" onSubmit={e => findUser(e)}>
+      <Form submit={findUser} >
         <div className="flex w-full h-[62px]  rounded-lg bg-black rounded-lg border border-gray-300 bg-white ">
           <input
             type="text"
@@ -46,7 +47,7 @@ function App() {
             <Search size={24} color="white" />
           </button>
         </div>
-      </form>
+      </Form>
 
       <div className="flex items-center bg-alert px-20 py-5 rounded-lg mt-8 gap-8">
         <div>
