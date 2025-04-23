@@ -16,7 +16,7 @@ const InputSearch = ({change, value, loading}: IProps) => {
                 value={value}
                 onChange={e => change(e)}
             />
-            <button className="flex justify-center items-center bg-button w-[62px] text-white px-4 py-2 rounded h-full">
+            <button disabled={loading} className="flex justify-center items-center bg-button w-[62px] text-white px-4 py-2 rounded h-full">
                 {loading ? <span className="loading loading-spinner loading-xs"></span> : <Search size={24} color="white" />}
                 
             </button>
