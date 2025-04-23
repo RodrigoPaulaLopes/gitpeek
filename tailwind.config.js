@@ -13,7 +13,9 @@ export default {
         "search": "62px"
       },
       colors: {
-        "button": "#0f60fe"
+        "button": "#0f60fe",
+        "alert": "#D9D9D9",
+        "error": "#FF0000"
       }
     },
   },
