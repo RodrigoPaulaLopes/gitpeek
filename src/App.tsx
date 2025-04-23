@@ -8,6 +8,7 @@ import Content from "./components/Content/Index"
 import GitHubImg from "./components/GitImage/Index"
 import Title from "./components/Title/Index"
 import Form from "./components/Form/Index"
+import InputSearch from "./components/InputSearch/Index"
 
 const initialValue: IProfile = {
   name: '',
@@ -37,16 +38,7 @@ function App() {
         <Title text="Perfil GitHub" />
       </Content>
       <Form submit={findUser} >
-        <div className="flex w-full h-[62px]  rounded-lg bg-black rounded-lg border border-gray-300 bg-white ">
-          <input
-            type="text"
-            className="h-search rounded-lg w-full flex-1 bg-white border-none px-4 text-base placeholder:text-black text-black outline-none"
-            placeholder="Digite um usuário do Github"
-          />
-          <button className="flex justify-center items-center bg-button w-[62px] text-white px-4 py-2 rounded h-full">
-            <Search size={24} color="white" />
-          </button>
-        </div>
+        <InputSearch value={username} change={(e) => setUsername(e.target.value)}/> 
       </Form>
 
       <div className="flex items-center bg-alert px-20 py-5 rounded-lg mt-8 gap-8">
