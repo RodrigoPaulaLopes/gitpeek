@@ -4,8 +4,9 @@ import { Search } from "lucide-react"
 interface IProps {
     change: (e: React.ChangeEvent<HTMLInputElement>) => void;
     value: string
+    loading: boolean
 }
-const InputSearch = ({change, value}: IProps) => {
+const InputSearch = ({change, value, loading}: IProps) => {
     return (
         <div className="flex w-full h-[62px]  rounded-lg bg-black rounded-lg border border-gray-300 bg-white ">
             <input
@@ -16,7 +17,8 @@ const InputSearch = ({change, value}: IProps) => {
                 onChange={e => change(e)}
             />
             <button className="flex justify-center items-center bg-button w-[62px] text-white px-4 py-2 rounded h-full">
-                <Search size={24} color="white" />
+                {loading ? <span className="loading loading-spinner loading-xs"></span> : <Search size={24} color="white" />}
+                
             </button>
         </div>
     )
