@@ -11,14 +11,9 @@ import InputSearch from "./components/InputSearch/Index";
 import ProfileContent from "./components/ProfileContent/Index";
 import AlertError from "./components/AlertError/Index";
 
-const initialValue: IProfile = {
-  name: "",
-  avatar_url: "",
-  bio: "",
-};
 
 function App() {
-  const [profile, setProfile] = useState<IProfile>(initialValue);
+  const [profile, setProfile] = useState<IProfile | null>(null);
   const [username, setUsername] = useState<string>("");
   const [hasError, setHasError] = useState<boolean>(false); // 👈
 
@@ -34,7 +29,7 @@ function App() {
     } catch (error) {
       console.log("Usuário não encontrado:", error);
       setHasError(true); 
-      setProfile(initialValue); 
+      setProfile(null); 
     }
   };
 
@@ -52,7 +47,7 @@ function App() {
         />
       </Form>
 
-      {!hasError && profile.name && <ProfileContent profile={profile} />}
+      {!hasError && profile && <ProfileContent profile={profile} />}
 
       {hasError && <AlertError />}
     </Container>

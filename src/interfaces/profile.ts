@@ -1,5 +1,5 @@
 export interface IProfile {
-    name: string,
-    avatar_url: string,
-    bio: string
+    name?: string,
+    avatar_url?: string,
+    bio?: string
 }
