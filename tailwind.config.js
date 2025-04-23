@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from 'daisyui';
 export default {
   content: [
     "./index.html",
@@ -8,10 +9,14 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        "80": "80px"
+        "80": "80px",
+        "search": "62px"
+      },
+      colors: {
+        "button": "#0f60fe"
       }
     },
   },
-  plugins: [],
+  plugins: [daisyui],
 }
 
