@@ -6,7 +6,7 @@ interface IContainer {
 
 }
 const Form = ({ children, submit }: IContainer) => {
-    return <form className="w-full flex items-center justify-center max-w-2xl" onSubmit={e => submit(e)}>
+    return <form className="w-full px-10 flex items-center justify-center lg:max-w-2xl" onSubmit={e => submit(e)}>
 
         {children}
     </form>;

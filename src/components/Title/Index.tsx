@@ -13,7 +13,7 @@ const Title = ({ text }: TitleProps) => {
   }, [text]);
 
   return (
-    <h1 className="text-80">
+    <h1 className="text-4xl mb-2 md:text-80">
       {title[0]} <span className="font-bold">{title[1]}</span>
     </h1>
   );
