@@ -1,8 +1,14 @@
 import { FormEvent, useState } from "react"
 import { api } from "./api/Api"
+import { IProfile } from "./interfaces/profile"
 
+const initialValue: IProfile = {
+  name: '',
+  avatar_url: '',
+  bio: ''
+}
 function App() {
-  
+  const [profile, setProfile] = useState<IProfile>(initialValue)
   const [username, setUsername] = useState<string>('')
 
 
@@ -12,9 +18,7 @@ function App() {
     try {
       const response = await api.get(`/${username}`)
       const { avatar_url, name, bio } = response.data
-      console.log("Nome:", name);
-      console.log("Bio:", bio);
-      console.log("Foto de perfil:", avatar_url)
+      setProfile({ name, avatar_url, bio })
     } catch (error) {
       console.log(error)
     }
@@ -27,14 +31,20 @@ function App() {
 
       <div>
         <form action="" onSubmit={e => findUser(e)}>
-            <label htmlFor="">USERNAME</label>
-            <input type="text" name="" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <input type="submit" value={"enviar"}/>
+          <label htmlFor="">USERNAME</label>
+          <input type="text" name="" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input type="submit" value={"enviar"} />
         </form>
       </div>
-      <div>
+      {profile && (
+        <div>
+          <img src={profile.avatar_url} alt="profile_image" />
+          <span>Name: {profile.name}</span>
 
-      </div>
+          <span>Bio: {profile.bio}</span>
+
+        </div>
+      )}
     </>
   )
 }
